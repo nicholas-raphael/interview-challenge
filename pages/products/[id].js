@@ -3,38 +3,33 @@ import Navbar from '../../components/Navbar'
 
 function Product({product}) {
   return (
-<>
-    <div>
-      <Navbar/>
-    </div>
-
-
-    <div className={styles.product_page}>  
-
-
-      <div className={styles.product_div}>
-        <img src={product.image}/>
+    <>
+      <div>
+        <Navbar/>
       </div>
-      <div className={styles.product_text}>
-        <p className={styles.product_title}>{product.title}</p>
-        <p>${product.price}</p>
-        <div className={styles.product_rating}>
-          {product.rating.rate}/5
+      <div className={styles.product_page}>  
+        <div className={styles.product_div}>
+          <img src={product.image}/>
         </div>
-        <p className={styles.product_desc}>{product.description}</p>
-          <div className={styles.btn}>
-            Agregar al carrito
+        <div className={styles.product_text}>
+          <p className={styles.product_title}>{product.title}</p>
+          <p>${product.price}</p>
+          <div className={styles.product_rating}>
+            {product.rating.rate}/5
           </div>
+          <p className={styles.product_desc}>{product.description}</p>
+            <div className={styles.btn}>
+              Agregar al carrito
+            </div>
+        </div>
       </div>
-    </div>
     </>
-    )
-}
-  Product
-
-
-    // This function gets called at build time
-export async function getStaticPaths() {
+  )
+}Product
+  /**
+    * Next.js will statically pre-render all the paths specified by getStaticPaths.
+  */
+  export async function getStaticPaths() {
   // Call an external API endpoint to get posts
   const res = await fetch('https://fakestoreapi.com/products')
   const posts = await res.json()
@@ -55,9 +50,8 @@ export async function getStaticProps({params}) {
   return {
     props: {
       product
-    }, // will be passed to the page component as props
+    },
   }
 }
 
-
-  export default Product
+export default Product

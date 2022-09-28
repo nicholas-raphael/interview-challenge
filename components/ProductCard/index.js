@@ -2,6 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 import styles from '../../styles/components/ProductCard/ProductCard.module.css'
 export default function ProductCard({p}) {
+  /*
+  * ProductCard - Encloses every product, It needs to have an specific padding & background
+  */
   return (
     <Link href={'/products/'+ p.id}>
       <div className={styles.product_card}>
