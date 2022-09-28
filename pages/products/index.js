@@ -1,11 +1,24 @@
 import styles from '../../styles/Products.module.css'
 import Navbar from '../../components/Navbar'
 import ProductCard from '../../components/ProductCard'
+import { useEffect, useState } from 'react';
 
 function Products({products}) {
+  const [avgRating, setAvgRating] = useState(0);
+
+    useEffect(
+      () => {
+        const averageRating = products.reduce(
+          (average, currentProduct) => 
+          average + currentProduct.rating.rate,0);
+        setAvgRating((averageRating/products.length).toFixed(1))
+      },
+      [],
+    );
+
     return (
       <div className={styles.products}>
-        <Navbar/>
+        <Navbar average_rating={avgRating} />
         {products.map(p => <ProductCard p={p}/>)}
       </div>
     )

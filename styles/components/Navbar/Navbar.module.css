@@ -24,6 +24,10 @@
         }
       } 
 
+.nav_wrapper span {
+  float: right;
+  line-height: 36px;
+}
 
 .logo {
     cursor: pointer;
