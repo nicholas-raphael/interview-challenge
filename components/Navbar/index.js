@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import styles from '../../styles/components/Navbar/Navbar.module.css'
 
 export default function Navbar() {
@@ -7,7 +8,9 @@ export default function Navbar() {
     <div className={styles.nav} >
         <div className={styles.nav_wrapper} >
             <div className={styles.logo}>
-                <img src={NAV_IMG}/>
+                <Link href='/products/'>
+                  <img src={NAV_IMG}/>
+                </Link>
             </div>
         </div>
     </div>
